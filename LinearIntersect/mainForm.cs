@@ -29,7 +29,7 @@ namespace LinearIntersect
                 if (refresh) onActiveImageChanged();
             }
         }
-        private string[] zoomLevels = { "25 %", "50 %", "100 %", "150 %", "200 %"};
+        private string[] zoomLevels = { "25 %", "50 %", "100 %", "150 %", "200 %" };
 
         public mainForm()
         {
@@ -170,15 +170,6 @@ namespace LinearIntersect
             }
         }
 
-        private void comboBoxZoom_KeyUp(object sender, KeyEventArgs e)
-        {
-            return;
-            if (e.KeyCode == Keys.Return)
-            {
-                activeImage.Zoom = comboBoxZoom.Text;
-            }
-        }
-
         private void mainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             List<ImageForm> tmpLst = new List<ImageForm>(ImageForms);
@@ -196,7 +187,11 @@ namespace LinearIntersect
 
         private void comboBoxZoom_SelectedValueChanged(object sender, EventArgs e)
         {
-            
+            if (comboBoxZoom.DataBindings.Count > 0)
+            {
+                comboBoxZoom.DataBindings[0].WriteValue();
+                Debug.WriteLine("Zoom Selection change commited ");
+            }
         }
     }
 }

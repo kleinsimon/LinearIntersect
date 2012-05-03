@@ -15,6 +15,8 @@ namespace LinearIntersect
     {
         List<ImageForm> ImageForms = new List<ImageForm>();
         private ImageForm _aI;
+        public Settings SetFrm;
+        public SettingsData Data = new SettingsData();
         public ImageForm activeImage
         {
             get
@@ -37,9 +39,25 @@ namespace LinearIntersect
             comboBox1.Items.Clear();
             comboBox1.DataSource = Enum.GetValues(typeof(GridOrientation));
             comboBoxZoom.DataSource = zoomLevels;
+
+            if (Properties.Settings.Default.SettingObject != null)
+            {
+                Data = Properties.Settings.Default.SettingObject;
+            }
+
             lockControls();
 
+            Data.PropertyChanged += new PropertyChangedEventHandler(Data_PropertyChanged);
+
             Debug.WriteLine("gestartet");
+        }
+
+        void Data_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            foreach (ImageForm ifrm in ImageForms)
+            {
+                ifrm.Refresh();
+            }
         }
 
         private void onActiveImageChanged()
@@ -83,6 +101,10 @@ namespace LinearIntersect
             ImageForm tmpFrm = new ImageForm();
             tmpFrm.prnt = this;
             tmpFrm.setImageFile(path);
+            tmpFrm.CurOverlay.DSTString = Data.DefaultDistance;
+            tmpFrm.CurOverlay.StartString = Data.DefaultStart;
+            tmpFrm.CurOverlay.Orientation = Data.DefaultDir;
+            tmpFrm.CurOverlay.createGrid();
             tmpFrm.Show();
             activeImage = tmpFrm;
             unlockControls();
@@ -183,6 +205,9 @@ namespace LinearIntersect
                 e.Cancel = true;
                 return;
             }
+
+            Properties.Settings.Default.SettingObject = Data;
+            Properties.Settings.Default.Save();
         }
 
         private void comboBoxZoom_SelectedValueChanged(object sender, EventArgs e)
@@ -193,5 +218,14 @@ namespace LinearIntersect
                 Debug.WriteLine("Zoom Selection change commited ");
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SetFrm = new Settings();
+            SetFrm.setData(Data);
+            SetFrm.Show(this);
+        }
+
+    
     }
 }

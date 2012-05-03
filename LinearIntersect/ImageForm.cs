@@ -140,7 +140,7 @@ namespace LinearIntersect
                     foreach (int g in CurOverlay.GridPosition)
                     {
                         go.DrawLine(
-                            new Pen(Brushes.LightGreen, lineSize),
+                            new Pen(prnt.Data.GridColor, lineSize),
                             0,
                             (int)((float)g * _zoom),
                             tmpImage.Width,
@@ -149,7 +149,7 @@ namespace LinearIntersect
                     }
 
                     go.DrawLine(
-                        new Pen(Brushes.YellowGreen, lineSize),
+                        new Pen(prnt.Data.CursorColor, lineSize),
                         (int)((float)pp.X * _zoom),
                         (int)((float)pp.Y * _zoom) - crossSize,
                         (int)((float)pp.X * _zoom),
@@ -159,7 +159,7 @@ namespace LinearIntersect
                     foreach (Point p in CurOverlay.Points)
                     {
                         go.DrawLine(
-                            new Pen(Brushes.OrangeRed, lineSize),
+                            new Pen(prnt.Data.PointColor, lineSize),
                             (int)((float)p.X * _zoom),
                             (int)((float)p.Y * _zoom) - crossSize,
                             (int)((float)p.X * _zoom),
@@ -172,7 +172,7 @@ namespace LinearIntersect
                     foreach (int g in CurOverlay.GridPosition)
                     {
                         go.DrawLine(
-                            new Pen(Brushes.LightGreen, lineSize),
+                            new Pen(prnt.Data.GridColor, lineSize),
                             (int)((float)g * _zoom),
                             0,
                             (int)((float)g * _zoom),
@@ -181,7 +181,7 @@ namespace LinearIntersect
                     }
 
                     go.DrawLine(
-                        new Pen(Brushes.YellowGreen, lineSize),
+                        new Pen(prnt.Data.CursorColor, lineSize),
                         (int)((float)pp.X * _zoom) - crossSize,
                         (int)((float)pp.Y * _zoom),
                         (int)((float)pp.X * _zoom) + crossSize,
@@ -191,7 +191,7 @@ namespace LinearIntersect
                     foreach (Point p in CurOverlay.Points)
                     {
                         go.DrawLine(
-                            new Pen(Brushes.OrangeRed, lineSize),
+                            new Pen(prnt.Data.PointColor, lineSize),
                             (int)((float)p.X * _zoom) - crossSize,
                             (int)((float)p.Y * _zoom),
                             (int)((float)p.X * _zoom) + crossSize,

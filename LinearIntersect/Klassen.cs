@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Configuration;
 using System.Diagnostics;
 using System.Drawing;
+
 using System.Windows.Forms;
 using System.ComponentModel;
 
@@ -227,6 +229,116 @@ namespace LinearIntersect
             }
             Debug.WriteLine("LineInfo angefordert");
             return res;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyPropertyChanged(String info)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(info));
+            }
+        }
+    }
+
+    [Serializable]
+    public class SettingsData : INotifyPropertyChanged
+    {
+        private Color _gridcolor = Color.LightGreen;
+        private Color _pointColor = Color.OrangeRed;
+        private Color _cursorColor = Color.Red;
+        private int _DefaultDistance = 100;
+        private int _DefaultStart = 30;
+        private GridOrientation _DefaultDir = GridOrientation.Horizontal;
+
+        public Color GridColor
+        {
+            get
+            {
+                return _gridcolor;
+            }
+            set
+            {
+                _gridcolor = value;
+                NotifyPropertyChanged("Gridcolor");
+            }
+        }
+
+        public Color PointColor
+        {
+            get
+            {
+                return _pointColor;
+            }
+            set
+            {
+                _pointColor = value;
+                NotifyPropertyChanged("_pointColor");
+            }
+        }
+
+        public Color CursorColor
+        {
+            get
+            {
+                return _cursorColor;
+            }
+            set
+            {
+                _cursorColor = value;
+                NotifyPropertyChanged("_cursorColor");
+            }
+        }
+
+        public string DefaultDistance
+        {
+            get
+            {
+                return _DefaultDistance.ToString(); ;
+            }
+            set
+            {
+                try
+                {
+                    _DefaultDistance = int.Parse(value);
+                    NotifyPropertyChanged("_DefaultDistance");
+                }
+                catch
+                {
+
+                }
+            }
+        }
+
+        public string DefaultStart
+        {
+            get
+            {
+                return _DefaultStart.ToString(); ;
+            }
+            set
+            {
+                _DefaultStart = int.Parse(value);
+                NotifyPropertyChanged("_DefaultStart");
+            }
+        }
+
+        public GridOrientation DefaultDir
+        {
+            get
+            {
+                return _DefaultDir;
+            }
+            set
+            {
+                _DefaultDir = value;
+                NotifyPropertyChanged("DefaultDir");
+            }
+        }
+
+        public SettingsData()
+        {
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

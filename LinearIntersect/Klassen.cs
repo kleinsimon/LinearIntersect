@@ -183,6 +183,7 @@ namespace LinearIntersect
 
         public void createGrid()
         {
+            GridPosition.Clear();
             int upper = 0;
             if (Orientation == GridOrientation.Horizontal) upper = ImageSize.Height;
             if (Orientation == GridOrientation.Vertical) upper = ImageSize.Width;

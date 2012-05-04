@@ -11,35 +11,54 @@ namespace LinearIntersect
 {
     public partial class ColorButton : UserControl
     {
+        public Color CurrentColor
+        {
+            get
+            {
+                return button1.BackColor;
+            }
+            set
+            {
+                button1.BackColor = value;
+                NotifyPropertyChanged("CurrentColor");
+            }
+        }
+
         public string Label
         {
             get
             {
-                return label1.Text;
+                return button1.Text;
             }
             set
             {
-                label1.Text = value;
+                button1.Text = value;
             }
         }
         public ColorButton()
         {
             InitializeComponent();
-            
         }
 
         private void ColorButton_Click(object sender, EventArgs e)
         {
-            colorDialog1.Color = this.BackColor;
+            colorDialog1.Color = this.CurrentColor;
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
-                this.BackColor = colorDialog1.Color;
+                CurrentColor = colorDialog1.Color;
+                if (DataBindings.Count > 0)
+                    DataBindings[0].WriteValue();
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyPropertyChanged(String info)
         {
-            this.InvokeOnClick(this, e);
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(info));
+            }
         }
     }
 }

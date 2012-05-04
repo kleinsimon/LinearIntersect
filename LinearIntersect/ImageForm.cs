@@ -82,19 +82,20 @@ namespace LinearIntersect
             imgPath = ImageFile;
 
             setScale();
+            init = true;
         }
 
         public void setScale()
         {
             Size newSize = new Size((int)((float)BaseImage.Width * _zoom), (int)((float)BaseImage.Height * _zoom));
             this.ClientSize = newSize;
-            CurOverlay.ImageSize = newSize;
+            CurOverlay.ImageSize = BaseImage.Size;
 
             //tmpImage = (Image)BaseImage.Clone();
             tmpImage = new Bitmap(BaseImage, newSize);
 
             CurOverlay.createGrid();
-            init = true;
+            
             this.Refresh();
         }
 

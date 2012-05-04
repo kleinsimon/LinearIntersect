@@ -36,14 +36,20 @@ namespace LinearIntersect
         public mainForm()
         {
             InitializeComponent();
+
+            //Properties.Settings.Default.Reload();
+            Data.GridColor = Properties.Settings.Default.ColorGrid;
+            Data.PointColor = Properties.Settings.Default.ColorPoint;
+            Data.CursorColor = Properties.Settings.Default.ColorCursor;
+            Data.DefaultDistance = Properties.Settings.Default.GridDistance;
+            Data.DefaultStart = Properties.Settings.Default.GridStart;
+            Data.DefaultDir = Properties.Settings.Default.GridDir;
+
             comboBox1.Items.Clear();
             comboBox1.DataSource = Enum.GetValues(typeof(GridOrientation));
             comboBoxZoom.DataSource = zoomLevels;
 
-            if (Properties.Settings.Default.SettingObject != null)
-            {
-                Data = Properties.Settings.Default.SettingObject;
-            }
+
 
             lockControls();
 
@@ -206,7 +212,12 @@ namespace LinearIntersect
                 return;
             }
 
-            Properties.Settings.Default.SettingObject = Data;
+            Properties.Settings.Default.ColorGrid = Data.GridColor;
+            Properties.Settings.Default.ColorPoint = Data.PointColor;
+            Properties.Settings.Default.ColorCursor = Data.CursorColor;
+            Properties.Settings.Default.GridDistance = Data.DefaultDistance;
+            Properties.Settings.Default.GridStart = Data.DefaultStart;
+            Properties.Settings.Default.GridDir = Data.DefaultDir;
             Properties.Settings.Default.Save();
         }
 

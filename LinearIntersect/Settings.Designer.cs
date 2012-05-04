@@ -66,7 +66,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.button1);
-            this.splitContainer1.Size = new System.Drawing.Size(486, 214);
+            this.splitContainer1.Size = new System.Drawing.Size(185, 214);
             this.splitContainer1.SplitterDistance = 161;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -98,15 +98,15 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(486, 161);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(185, 161);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // textBoxStart
             // 
             this.textBoxStart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxStart.Location = new System.Drawing.Point(246, 107);
+            this.textBoxStart.Location = new System.Drawing.Point(95, 107);
             this.textBoxStart.Name = "textBoxStart";
-            this.textBoxStart.Size = new System.Drawing.Size(237, 20);
+            this.textBoxStart.Size = new System.Drawing.Size(87, 20);
             this.textBoxStart.TabIndex = 14;
             // 
             // label4
@@ -114,7 +114,7 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Location = new System.Drawing.Point(3, 130);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(237, 31);
+            this.label4.Size = new System.Drawing.Size(86, 31);
             this.label4.TabIndex = 12;
             this.label4.Text = "Ausrichtung";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -123,18 +123,18 @@
             // 
             this.colorButtonCursor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.colorButtonCursor.Label = "";
-            this.colorButtonCursor.Location = new System.Drawing.Point(246, 55);
+            this.colorButtonCursor.Location = new System.Drawing.Point(95, 55);
             this.colorButtonCursor.Name = "colorButtonCursor";
-            this.colorButtonCursor.Size = new System.Drawing.Size(237, 20);
+            this.colorButtonCursor.Size = new System.Drawing.Size(87, 20);
             this.colorButtonCursor.TabIndex = 9;
             // 
             // colorButtonPoint
             // 
             this.colorButtonPoint.Dock = System.Windows.Forms.DockStyle.Fill;
             this.colorButtonPoint.Label = "";
-            this.colorButtonPoint.Location = new System.Drawing.Point(246, 29);
+            this.colorButtonPoint.Location = new System.Drawing.Point(95, 29);
             this.colorButtonPoint.Name = "colorButtonPoint";
-            this.colorButtonPoint.Size = new System.Drawing.Size(237, 20);
+            this.colorButtonPoint.Size = new System.Drawing.Size(87, 20);
             this.colorButtonPoint.TabIndex = 8;
             // 
             // label7
@@ -142,7 +142,7 @@
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Location = new System.Drawing.Point(3, 78);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(237, 26);
+            this.label7.Size = new System.Drawing.Size(86, 26);
             this.label7.TabIndex = 6;
             this.label7.Text = "Gitterabstand";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -152,7 +152,7 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Location = new System.Drawing.Point(3, 52);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(237, 26);
+            this.label5.Size = new System.Drawing.Size(86, 26);
             this.label5.TabIndex = 4;
             this.label5.Text = "Cursorfarbe";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -162,7 +162,7 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Location = new System.Drawing.Point(3, 26);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(237, 26);
+            this.label3.Size = new System.Drawing.Size(86, 26);
             this.label3.TabIndex = 2;
             this.label3.Text = "Punktfarbe";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -172,7 +172,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(237, 26);
+            this.label1.Size = new System.Drawing.Size(86, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "Gitterfarbe";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -181,17 +181,17 @@
             // 
             this.colorButtonGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.colorButtonGrid.Label = "";
-            this.colorButtonGrid.Location = new System.Drawing.Point(246, 3);
+            this.colorButtonGrid.Location = new System.Drawing.Point(95, 3);
             this.colorButtonGrid.Name = "colorButtonGrid";
-            this.colorButtonGrid.Size = new System.Drawing.Size(237, 20);
+            this.colorButtonGrid.Size = new System.Drawing.Size(87, 20);
             this.colorButtonGrid.TabIndex = 7;
             // 
             // textBoxDistance
             // 
             this.textBoxDistance.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxDistance.Location = new System.Drawing.Point(246, 81);
+            this.textBoxDistance.Location = new System.Drawing.Point(95, 81);
             this.textBoxDistance.Name = "textBoxDistance";
-            this.textBoxDistance.Size = new System.Drawing.Size(237, 20);
+            this.textBoxDistance.Size = new System.Drawing.Size(87, 20);
             this.textBoxDistance.TabIndex = 10;
             // 
             // label2
@@ -199,7 +199,7 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Location = new System.Drawing.Point(3, 104);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(237, 26);
+            this.label2.Size = new System.Drawing.Size(86, 26);
             this.label2.TabIndex = 11;
             this.label2.Text = "Gitter Start";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -209,19 +209,18 @@
             this.comboBoxDir.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBoxDir.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDir.FormattingEnabled = true;
-            this.comboBoxDir.Location = new System.Drawing.Point(246, 133);
+            this.comboBoxDir.Location = new System.Drawing.Point(95, 133);
             this.comboBoxDir.Name = "comboBoxDir";
-            this.comboBoxDir.Size = new System.Drawing.Size(237, 21);
+            this.comboBoxDir.Size = new System.Drawing.Size(87, 21);
             this.comboBoxDir.TabIndex = 13;
             this.comboBoxDir.SelectedValueChanged += new System.EventHandler(this.comboBoxDir_SelectedValueChanged);
             // 
             // button1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(202, 14);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.Location = new System.Drawing.Point(46, 14);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(94, 23);
             this.button1.TabIndex = 0;
             this.button1.Text = "Schließen";
             this.button1.UseVisualStyleBackColor = true;
@@ -231,7 +230,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(486, 214);
+            this.ClientSize = new System.Drawing.Size(185, 214);
             this.Controls.Add(this.splitContainer1);
             this.Name = "Settings";
             this.Text = "Settings";

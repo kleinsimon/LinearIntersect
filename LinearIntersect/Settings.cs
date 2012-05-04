@@ -28,9 +28,9 @@ namespace LinearIntersect
             textBoxStart.DataBindings.Clear();
             comboBoxDir.DataBindings.Clear();
 
-            colorButtonGrid.DataBindings.Add("BackColor", Data, "GridColor", false, DataSourceUpdateMode.OnPropertyChanged);
-            colorButtonPoint.DataBindings.Add("BackColor", Data, "PointColor", false, DataSourceUpdateMode.OnPropertyChanged);
-            colorButtonCursor.DataBindings.Add("BackColor", Data, "CursorColor", false, DataSourceUpdateMode.OnPropertyChanged);
+            colorButtonGrid.DataBindings.Add("CurrentColor", Data, "GridColor", false, DataSourceUpdateMode.OnPropertyChanged);
+            colorButtonPoint.DataBindings.Add("CurrentColor", Data, "PointColor", false, DataSourceUpdateMode.OnPropertyChanged);
+            colorButtonCursor.DataBindings.Add("CurrentColor", Data, "CursorColor", false, DataSourceUpdateMode.OnPropertyChanged);
             textBoxDistance.DataBindings.Add("Text", Data, "DefaultDistance", false, DataSourceUpdateMode.OnPropertyChanged);
             textBoxStart.DataBindings.Add("Text", Data, "DefaultStart", false, DataSourceUpdateMode.OnPropertyChanged);
             comboBoxDir.DataSource = Enum.GetValues(typeof(GridOrientation));

@@ -2,8 +2,23 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LinearIntersect.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="SettingObject" Type="LinearIntersect.SettingsData" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="ColorGrid" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">192, 255, 192</Value>
+    </Setting>
+    <Setting Name="ColorPoint" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">255, 128, 128</Value>
+    </Setting>
+    <Setting Name="ColorCursor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">255, 192, 255</Value>
+    </Setting>
+    <Setting Name="GridDistance" Type="System.String" Scope="User">
+      <Value Profile="(Default)">75</Value>
+    </Setting>
+    <Setting Name="GridStart" Type="System.String" Scope="User">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="GridDir" Type="LinearIntersect.GridOrientation" Scope="User">
+      <Value Profile="(Default)">Horizontal</Value>
     </Setting>
   </Settings>
 </SettingsFile>

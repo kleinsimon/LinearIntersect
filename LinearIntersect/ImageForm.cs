@@ -205,6 +205,16 @@ namespace LinearIntersect
 
         private void ImageForm_MouseUp(object sender, MouseEventArgs e)
         {
+
+        }
+
+        private void ImageForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            addPoint(e);
+        }
+
+        private void addPoint(MouseEventArgs e)
+        {
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
                 CurOverlay.AddPoint(new Point(
                     (int)((float)(e.X - this.ClientRectangle.X) / _zoom),

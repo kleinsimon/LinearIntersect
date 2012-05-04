@@ -43,6 +43,7 @@
             this.Activated += new System.EventHandler(this.ImageForm_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ImageForm_FormClosing);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ImageForm_Paint);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ImageForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ImageForm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ImageForm_MouseUp);
             this.ResumeLayout(false);

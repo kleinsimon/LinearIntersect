@@ -121,6 +121,7 @@
             // 
             // colorButtonCursor
             // 
+            this.colorButtonCursor.CurrentColor = System.Drawing.SystemColors.Control;
             this.colorButtonCursor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.colorButtonCursor.Label = "";
             this.colorButtonCursor.Location = new System.Drawing.Point(95, 55);
@@ -130,6 +131,7 @@
             // 
             // colorButtonPoint
             // 
+            this.colorButtonPoint.CurrentColor = System.Drawing.SystemColors.Control;
             this.colorButtonPoint.Dock = System.Windows.Forms.DockStyle.Fill;
             this.colorButtonPoint.Label = "";
             this.colorButtonPoint.Location = new System.Drawing.Point(95, 29);
@@ -179,6 +181,7 @@
             // 
             // colorButtonGrid
             // 
+            this.colorButtonGrid.CurrentColor = System.Drawing.SystemColors.Control;
             this.colorButtonGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.colorButtonGrid.Label = "";
             this.colorButtonGrid.Location = new System.Drawing.Point(95, 3);

@@ -89,6 +89,8 @@ namespace LinearIntersect
             button1.Text = "Auswertung";
             button1.Enabled = true;
 
+            
+
             Debug.WriteLine("Binding erneuert auf " + activeImage.Text);
         }
 
@@ -143,8 +145,21 @@ namespace LinearIntersect
             if (activeImage == null) return;
             Debug.WriteLine("Export geclickt");
             activeImage.exportData();
-            button1.Text = "Fertig";
-            button1.Enabled = false;
+            dataDirty(false);
+        }
+
+        public void dataDirty(bool State)
+        {
+            if (State)
+            {
+                button1.Text = "Auswerten";
+                button1.Enabled = true;
+            }
+            else
+            {
+                button1.Text = "Fertig";
+                button1.Enabled = false;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -217,6 +217,7 @@ namespace LinearIntersect
                     ));
 
             exportDone = false;
+            prnt.dataDirty(true);
             this.Refresh();
         }
 

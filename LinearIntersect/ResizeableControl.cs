@@ -22,13 +22,38 @@ namespace LinearIntersect
         public int ResizeNS = 0;
         public int ResizeEW = 0;
         public int ResizableBorderWidth = 5;
-        public int DefaultLength = 50;
+        public int DefaultLength = 150;
         public Orientation Direction = Orientation.Horizontal;
-        private MouseEventHandler MEvent;
 
-        public ResizableControl()
+        public ResizableControl(Control parent)
         {
-            MEvent = new MouseEventHandler(Parent_MouseUp);
+            this.DoubleBuffered = true;
+            Parent = parent;
+            Width = DefaultLength;
+            Height = minSize;
+            setNewPosition();
+        }
+
+        protected override void OnPaintBackground(PaintEventArgs pevent)
+        {
+            //base.OnPaintBackground(pevent);
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            g.Clear(Color.Black);
+
+            if (Direction == Orientation.Horizontal)
+            {
+                g.FillRectangle(Brushes.White, 0, 0, this.Width, this.Height / 2);
+            }
+            else
+            {
+                g.FillRectangle(Brushes.White, 0, 0, this.Width / 2, this.Height);
+            }
+
+            base.OnPaint(e);
         }
 
         protected override void OnDoubleClick(EventArgs e)
@@ -88,19 +113,18 @@ namespace LinearIntersect
             controlInitialSize = this.Size;
             this.drag = true;
 
-            Parent.MouseUp += MEvent;
-
             base.OnMouseDown(e);
         }
 
         void Parent_MouseUp(object sender, MouseEventArgs e)
         {
-            Debug.WriteLine("ParenMouseUp");
+            Debug.WriteLine("ParentMouseUp");
             EndDrag();
         }
 
         protected override void OnMouseUp(MouseEventArgs e)
         {
+            Debug.WriteLine("thisMouseUp");
             EndDrag();
             base.OnMouseUp(e);
         }
@@ -110,7 +134,7 @@ namespace LinearIntersect
             this.drag = false;
             ResizeNS = 0;
             ResizeEW = 0;
-            Parent.MouseUp -= MEvent;
+            //Parent.MouseUp -= new MouseEventHandler(Parent_MouseUp);
         }
 
         protected void setNewPosition()
@@ -158,30 +182,22 @@ namespace LinearIntersect
         {
             if (!drag)
             {
-                //if (resize) return;
                 Point mouse = this.PointToClient(MousePosition);
+                this.Cursor = Cursors.SizeAll;
 
                 if (Direction == Orientation.Horizontal)
                 {
                     if (mouse.X < this.ResizableBorderWidth)
-                    {
                         this.Cursor = Cursors.SizeWE;
-                    }
                     else if (mouse.X > (this.Width - this.ResizableBorderWidth))
-                    {
                         this.Cursor = Cursors.SizeWE;
-                    }
                 }
                 else
                 {
                     if (mouse.Y < this.ResizableBorderWidth)
-                    {
                         this.Cursor = Cursors.SizeNS;
-                    }
                     else if (mouse.Y > (this.Height - this.ResizableBorderWidth))
-                    {
                         this.Cursor = Cursors.SizeNS;
-                    }
                 }
 
                 //if (mouse.X < this.ResizableBorderWidth)
@@ -214,6 +230,13 @@ namespace LinearIntersect
                 setNewPosition();
             }
             base.OnMouseMove(e);
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            this.ResumeLayout(false);
+
         }
     }
 }

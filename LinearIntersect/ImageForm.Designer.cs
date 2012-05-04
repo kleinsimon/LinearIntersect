@@ -45,7 +45,6 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ImageForm_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ImageForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ImageForm_MouseMove);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ImageForm_MouseUp);
             this.ResumeLayout(false);
 
         }

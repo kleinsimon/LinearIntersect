@@ -25,10 +25,9 @@ namespace LinearIntersect
         public int DefaultLength = 150;
         public Orientation Direction = Orientation.Horizontal;
 
-        public ResizableControl(Control parent)
+        public ResizableControl()
         {
             this.DoubleBuffered = true;
-            Parent = parent;
             Width = DefaultLength;
             Height = minSize;
             setNewPosition();
@@ -41,6 +40,7 @@ namespace LinearIntersect
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            if (Parent == null) return;
             Graphics g = e.Graphics;
             g.Clear(Color.Black);
 
@@ -118,12 +118,14 @@ namespace LinearIntersect
 
         void Parent_MouseUp(object sender, MouseEventArgs e)
         {
+            if (Parent == null) return;
             Debug.WriteLine("ParentMouseUp");
             EndDrag();
         }
 
         protected override void OnMouseUp(MouseEventArgs e)
         {
+            if (Parent == null) return;
             Debug.WriteLine("thisMouseUp");
             EndDrag();
             base.OnMouseUp(e);
@@ -139,7 +141,7 @@ namespace LinearIntersect
 
         protected void setNewPosition()
         {
-
+            if (Parent == null) return;
             this.SuspendLayout();
             //Debug.WriteLine("Resize NS " + ResizeNS);
             //Debug.WriteLine("Resize EW " + ResizeEW);

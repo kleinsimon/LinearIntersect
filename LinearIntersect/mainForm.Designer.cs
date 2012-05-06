@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.comboBoxZoom = new System.Windows.Forms.ComboBox();
+            this.comboBoxCalib = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
@@ -42,51 +45,74 @@
             this.textBoxDist = new System.Windows.Forms.TextBox();
             this.textBoxStart = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.auswertungSpeichernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.punkteLlöschenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kalibierungenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(686, 69);
+            this.panel1.Size = new System.Drawing.Size(786, 69);
             this.panel1.TabIndex = 4;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.comboBoxZoom);
+            this.groupBox2.Controls.Add(this.comboBoxCalib);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.trackBar1);
-            this.groupBox2.Location = new System.Drawing.Point(93, 3);
+            this.groupBox2.Location = new System.Drawing.Point(12, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(246, 58);
+            this.groupBox2.Size = new System.Drawing.Size(338, 58);
             this.groupBox2.TabIndex = 35;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Bild";
             // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(117, 13);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(101, 13);
+            this.label6.TabIndex = 34;
+            this.label6.Text = "Kalibrierung";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // comboBoxZoom
             // 
-            this.comboBoxZoom.Location = new System.Drawing.Point(21, 27);
+            this.comboBoxZoom.Location = new System.Drawing.Point(6, 29);
             this.comboBoxZoom.Name = "comboBoxZoom";
             this.comboBoxZoom.Size = new System.Drawing.Size(104, 21);
             this.comboBoxZoom.TabIndex = 32;
             this.comboBoxZoom.SelectedValueChanged += new System.EventHandler(this.comboBoxZoom_SelectedValueChanged);
             // 
+            // comboBoxCalib
+            // 
+            this.comboBoxCalib.CausesValidation = false;
+            this.comboBoxCalib.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCalib.Location = new System.Drawing.Point(116, 29);
+            this.comboBoxCalib.Name = "comboBoxCalib";
+            this.comboBoxCalib.Size = new System.Drawing.Size(102, 21);
+            this.comboBoxCalib.TabIndex = 33;
+            this.comboBoxCalib.SelectedIndexChanged += new System.EventHandler(this.comboBoxCalib_SelectedIndexChanged);
+            // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(21, 11);
+            this.label5.Location = new System.Drawing.Point(6, 13);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(104, 13);
             this.label5.TabIndex = 33;
@@ -96,7 +122,7 @@
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.Location = new System.Drawing.Point(134, 13);
+            this.label4.Location = new System.Drawing.Point(226, 13);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 13);
             this.label4.TabIndex = 31;
@@ -107,7 +133,7 @@
             // 
             this.trackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBar1.AutoSize = false;
-            this.trackBar1.Location = new System.Drawing.Point(131, 27);
+            this.trackBar1.Location = new System.Drawing.Point(223, 29);
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(104, 25);
             this.trackBar1.TabIndex = 30;
@@ -122,7 +148,7 @@
             this.groupBox1.Controls.Add(this.textBoxDist);
             this.groupBox1.Controls.Add(this.textBoxStart);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(347, 3);
+            this.groupBox1.Location = new System.Drawing.Point(356, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(336, 58);
             this.groupBox1.TabIndex = 34;
@@ -132,9 +158,9 @@
             // button2
             // 
             this.button2.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button2.Location = new System.Drawing.Point(272, 17);
+            this.button2.Location = new System.Drawing.Point(272, 29);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(54, 32);
+            this.button2.Size = new System.Drawing.Size(44, 21);
             this.button2.TabIndex = 32;
             this.button2.Text = "OK";
             this.button2.UseVisualStyleBackColor = true;
@@ -190,35 +216,71 @@
             this.label3.Text = "Offset";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // button3
+            // toolStrip1
             // 
-            this.button3.Location = new System.Drawing.Point(12, 30);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 33;
-            this.button3.Text = "Leeren";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripDropDownButton1,
+            this.toolStripDropDownButton2,
+            this.toolStripButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(699, 25);
+            this.toolStrip1.TabIndex = 38;
+            this.toolStrip1.Text = "toolStrip1";
             // 
-            // button1
+            // toolStripDropDownButton1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Auswerten";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.auswertungSpeichernToolStripMenuItem});
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(47, 22);
+            this.toolStripDropDownButton1.Text = "Datei";
             // 
-            // button4
+            // auswertungSpeichernToolStripMenuItem
             // 
-            this.button4.Location = new System.Drawing.Point(692, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(85, 23);
-            this.button4.TabIndex = 37;
-            this.button4.Text = "Einstellungen";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.auswertungSpeichernToolStripMenuItem.Name = "auswertungSpeichernToolStripMenuItem";
+            this.auswertungSpeichernToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.auswertungSpeichernToolStripMenuItem.Text = "Auswertung speichern";
+            this.auswertungSpeichernToolStripMenuItem.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // toolStripDropDownButton2
+            // 
+            this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.punkteLlöschenToolStripMenuItem,
+            this.kalibierungenToolStripMenuItem});
+            this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
+            this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
+            this.toolStripDropDownButton2.Size = new System.Drawing.Size(60, 22);
+            this.toolStripDropDownButton2.Text = "Messen";
+            // 
+            // punkteLlöschenToolStripMenuItem
+            // 
+            this.punkteLlöschenToolStripMenuItem.Name = "punkteLlöschenToolStripMenuItem";
+            this.punkteLlöschenToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.punkteLlöschenToolStripMenuItem.Text = "Punkte Löschen";
+            this.punkteLlöschenToolStripMenuItem.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // kalibierungenToolStripMenuItem
+            // 
+            this.kalibierungenToolStripMenuItem.Name = "kalibierungenToolStripMenuItem";
+            this.kalibierungenToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.kalibierungenToolStripMenuItem.Text = "Kalibierungen...";
+            this.kalibierungenToolStripMenuItem.Click += new System.EventHandler(this.buttonSetCalib_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(82, 22);
+            this.toolStripButton1.Text = "Einstellungen";
+            this.toolStripButton1.Click += new System.EventHandler(this.button4_Click);
             // 
             // mainForm
             // 
@@ -226,8 +288,8 @@
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(786, 69);
-            this.Controls.Add(this.button4);
+            this.ClientSize = new System.Drawing.Size(699, 97);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -243,7 +305,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -257,15 +322,21 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxDist;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboBoxZoom;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ComboBox comboBoxCalib;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripMenuItem auswertungSpeichernToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem punkteLlöschenToolStripMenuItem;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ToolStripMenuItem kalibierungenToolStripMenuItem;
 
 
     }

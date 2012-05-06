@@ -64,7 +64,8 @@ namespace LinearIntersect
             InitializeComponent();
             this.DoubleBuffered = true;
             CurOverlay.PropertyChanged += new PropertyChangedEventHandler(CurOverlay_PropertyChanged);
-            ResizableControl test = new ResizableControl(this);
+            ResizableControl test = new ResizableControl();
+            test.Parent = this;
             test.Left = 100;
             test.Top = 100;
             test.BackColor = Color.White;
@@ -268,8 +269,9 @@ namespace LinearIntersect
             output.Add("\"Resolution:\" \"" + BaseImage.Width + "x" + BaseImage.Height + "\"");
             output.Add("\"Orientation:\" \"" + CurOverlay.Orientation.ToString() + "\"");
             output.Add("\"Distance:\" \"" + CurOverlay.DSTString + "\"");
-            output.Add("\"Start:\" \"" + CurOverlay.StartString + "\"" + Environment.NewLine);
-            output.Add("Nummer\tSehnenlänge");
+            output.Add("\"Start:\" \"" + CurOverlay.StartString + "\"");
+            output.Add("\"Umrechnung:\" \"" + CurOverlay.Calibration.Value.ToString() + "\"" + Environment.NewLine);
+            output.Add("Nummer\tSehnenlänge [px]\tSehenlänge");
 
             foreach (KeyValuePair<int, List<int>> info in LineInfo)
             {
@@ -282,7 +284,7 @@ namespace LinearIntersect
                         start = pos;
                         continue;
                     }
-                    output.Add(string.Format("{0}\t{1}", i, pos - start));
+                    output.Add(string.Format("{0}\t{1}\t{2}", i, pos - start, ((float) (pos - start)) * CurOverlay.Calibration.Value));
                     start = pos;
                     i++;
                 }

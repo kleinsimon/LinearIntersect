@@ -20,5 +20,8 @@
     <Setting Name="GridDir" Type="LinearIntersect.GridOrientation" Scope="User">
       <Value Profile="(Default)">Horizontal</Value>
     </Setting>
+    <Setting Name="Calibrations" Type="LinearIntersect.CalibrationList" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

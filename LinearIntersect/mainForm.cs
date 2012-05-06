@@ -37,7 +37,9 @@ namespace LinearIntersect
         {
             InitializeComponent();
 
-            //Properties.Settings.Default.Reload();
+            Properties.Settings.Default.Reload();
+            if (Properties.Settings.Default.Calibrations != null)
+                Data.Calibration = Properties.Settings.Default.Calibrations;
             Data.GridColor = Properties.Settings.Default.ColorGrid;
             Data.PointColor = Properties.Settings.Default.ColorPoint;
             Data.CursorColor = Properties.Settings.Default.ColorCursor;
@@ -45,11 +47,14 @@ namespace LinearIntersect
             Data.DefaultStart = Properties.Settings.Default.GridStart;
             Data.DefaultDir = Properties.Settings.Default.GridDir;
 
+
             comboBox1.Items.Clear();
             comboBox1.DataSource = Enum.GetValues(typeof(GridOrientation));
             comboBoxZoom.DataSource = zoomLevels;
 
-
+            comboBoxCalib.DataSource = Data.Calibration;
+            comboBoxCalib.DisplayMember = "Key";
+            comboBoxCalib.ValueMember = "Value";
 
             lockControls();
 
@@ -86,10 +91,8 @@ namespace LinearIntersect
             comboBoxZoom.DataBindings.Clear();
             comboBoxZoom.DataBindings.Add("Text", activeImage, "Zoom", false, DataSourceUpdateMode.OnValidation);
 
-            button1.Text = "Auswertung";
-            button1.Enabled = true;
-
-            
+            comboBoxCalib.SelectedItem = null;
+            comboBoxCalib.SelectedItem = activeImage.CurOverlay.Calibration;
 
             Debug.WriteLine("Binding erneuert auf " + activeImage.Text);
         }
@@ -150,16 +153,16 @@ namespace LinearIntersect
 
         public void dataDirty(bool State)
         {
-            if (State)
-            {
-                button1.Text = "Auswerten";
-                button1.Enabled = true;
-            }
-            else
-            {
-                button1.Text = "Fertig";
-                button1.Enabled = false;
-            }
+            //if (State)
+            //{
+            //    buttonSetCalib.Text = "Auswerten";
+            //    buttonSetCalib.Enabled = true;
+            //}
+            //else
+            //{
+            //    buttonSetCalib.Text = "Fertig";
+            //    buttonSetCalib.Enabled = false;
+            //}
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -233,6 +236,7 @@ namespace LinearIntersect
             Properties.Settings.Default.GridDistance = Data.DefaultDistance;
             Properties.Settings.Default.GridStart = Data.DefaultStart;
             Properties.Settings.Default.GridDir = Data.DefaultDir;
+            Properties.Settings.Default.Calibrations = Data.Calibration;
             Properties.Settings.Default.Save();
         }
 
@@ -252,6 +256,27 @@ namespace LinearIntersect
             SetFrm.Show(this);
         }
 
-    
+        private void buttonSetCalib_Click(object sender, EventArgs e)
+        {
+            CalibrationConfig Cfrm = new CalibrationConfig();
+            Cfrm.TopMost = true;
+            Cfrm.MainForm = this;
+            Cfrm.Show();
+        }
+
+        private void comboBoxCalib_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxCalib.SelectedItem == null)
+                return;
+            try
+            {
+                Debug.WriteLine(comboBoxCalib.SelectedText  + activeImage.CurOverlay.Calibration.Value.ToString());
+                activeImage.CurOverlay.Calibration = (BindableKeyValuePair<string, float>)comboBoxCalib.SelectedItem;
+            }
+            catch
+            {
+
+            }
+        }
     }
 }

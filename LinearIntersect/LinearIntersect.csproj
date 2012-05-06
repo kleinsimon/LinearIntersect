@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalibrationConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalibrationConfig.Designer.cs">
+      <DependentUpon>CalibrationConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="ColorButton.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -81,6 +87,10 @@
     <Compile Include="Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings1.cs" />
+    <EmbeddedResource Include="CalibrationConfig.resx">
+      <DependentUpon>CalibrationConfig.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ColorButton.resx">
       <DependentUpon>ColorButton.cs</DependentUpon>
     </EmbeddedResource>

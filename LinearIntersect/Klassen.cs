@@ -24,6 +24,30 @@ namespace LinearIntersect
         private int GridStart = 30;
         private int GridDistance = 100;
         public float zoom = 1f;
+        private BindableKeyValuePair<string, float> _calibration;
+
+        public BindableKeyValuePair<string, float> Calibration
+        {
+            get
+            {
+                if (_calibration == null)
+                {
+                    BindableKeyValuePair<string, float> tmp = new BindableKeyValuePair<string, float>();
+                    tmp.Key = "Default";
+                    tmp.Value = 1f;
+                    _calibration = tmp;
+                }
+
+                return _calibration;
+            }
+            set
+            {
+                _calibration = value;
+                Debug.WriteLine("Calibration changed to: " + value.ToString());
+                NotifyPropertyChanged("Calibration");
+            }
+        }
+
         public string StartString
         {
             get
@@ -252,6 +276,8 @@ namespace LinearIntersect
         private int _DefaultDistance = 100;
         private int _DefaultStart = 30;
         private GridOrientation _DefaultDir = GridOrientation.Horizontal;
+        //public Dictionary<string, float> Calibration = new Dictionary<string, float>();
+        public CalibrationList Calibration = new CalibrationList();
 
         public Color GridColor
         {
@@ -351,5 +377,53 @@ namespace LinearIntersect
                 PropertyChanged(this, new PropertyChangedEventArgs(info));
             }
         }
+    }
+
+    [Serializable]
+    public class BindableKeyValuePair<T1, T2>
+    {
+        private T1 _key = default(T1);
+        public T1 Key
+        {
+            get
+            {
+                return _key;
+            }
+            set
+            {
+                _key = value;
+                NotifyPropertyChanged("Key Changed");
+            }
+        }
+
+        private T2 _value = default(T2);
+        public T2 Value
+        {
+            get
+            {
+                return _value;
+            }
+            set
+            {
+                _value = value;
+                NotifyPropertyChanged("Value Changed");
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyPropertyChanged(String info)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(info));
+            }
+        }
+    }
+
+    [Serializable]
+    public class CalibrationList : BindingList<BindableKeyValuePair<string, float>>
+    {
+
     }
 }

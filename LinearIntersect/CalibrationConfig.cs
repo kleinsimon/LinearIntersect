@@ -12,6 +12,8 @@ namespace LinearIntersect
 {
     public partial class CalibrationConfig : Form
     {
+        private bool measuring = false;
+        ResizableControl KalibTool;
         private mainForm _mainfrm;
         public mainForm MainForm
         {
@@ -61,7 +63,52 @@ namespace LinearIntersect
         private void dGVCalib_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
             e.Row.Cells[0].Value = "Neu";
-            e.Row.Cells[1].Value = 0f;
+            e.Row.Cells[1].Value = 1f;
+        }
+
+        private void CreateCalibBar()
+        {
+            KalibTool = new ResizableControl();
+            KalibTool.Parent = MainForm.activeImage;
+            KalibTool.Left = 100;
+            KalibTool.Top = 100;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            float tmp;
+            if (!measuring)
+            {
+                CreateCalibBar();
+                textBoxSoll.Text = "";
+                textBoxSoll.Visible = true;
+                label1.Visible = true;
+                measuring = true;
+                button2.Text = @"Wert übernehmen";
+            }
+            else if (measuring && float.TryParse(textBoxSoll.Text, out tmp))
+            {
+                dGVCalib.Rows[dGVCalib.SelectedCells[0].RowIndex].Cells[1].Value = tmp / (float) KalibTool.Length;
+
+                KalibTool.Dispose();
+                measuring = false;
+                textBoxSoll.Visible = false;
+                label1.Visible = false;
+                button2.Text = @"Kalibrierung messen";
+            }
+            else
+            {
+                //textBoxSoll.BackColor = Color.Orange;
+            }
+        }
+
+        private void textBoxSoll_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar) ||
+                char.IsSymbol(e.KeyChar) ||
+                char.IsWhiteSpace(e.KeyChar) ||
+                char.IsPunctuation(e.KeyChar))
+                e.Handled = true;
         }
     }
 }

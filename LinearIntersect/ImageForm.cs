@@ -64,11 +64,6 @@ namespace LinearIntersect
             InitializeComponent();
             this.DoubleBuffered = true;
             CurOverlay.PropertyChanged += new PropertyChangedEventHandler(CurOverlay_PropertyChanged);
-            ResizableControl test = new ResizableControl();
-            test.Parent = this;
-            test.Left = 100;
-            test.Top = 100;
-            test.BackColor = Color.White;
         }
 
         void CurOverlay_PropertyChanged(object sender, PropertyChangedEventArgs e)

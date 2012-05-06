@@ -23,6 +23,16 @@ namespace LinearIntersect
         public int ResizeEW = 0;
         public int ResizableBorderWidth = 5;
         public int DefaultLength = 150;
+        public int Length
+        {
+            get
+            {
+                if (Direction == Orientation.Horizontal)
+                    return this.Width;
+                else
+                    return this.Height;
+            }
+        }
         public Orientation Direction = Orientation.Horizontal;
 
         public ResizableControl()

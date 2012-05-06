@@ -78,16 +78,16 @@
             this.groupBox2.Controls.Add(this.trackBar1);
             this.groupBox2.Location = new System.Drawing.Point(12, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(338, 58);
+            this.groupBox2.Size = new System.Drawing.Size(359, 58);
             this.groupBox2.TabIndex = 35;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Bild";
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(117, 13);
+            this.label6.Location = new System.Drawing.Point(94, 13);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(101, 13);
+            this.label6.Size = new System.Drawing.Size(144, 13);
             this.label6.TabIndex = 34;
             this.label6.Text = "Kalibrierung";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -96,7 +96,7 @@
             // 
             this.comboBoxZoom.Location = new System.Drawing.Point(6, 29);
             this.comboBoxZoom.Name = "comboBoxZoom";
-            this.comboBoxZoom.Size = new System.Drawing.Size(104, 21);
+            this.comboBoxZoom.Size = new System.Drawing.Size(82, 21);
             this.comboBoxZoom.TabIndex = 32;
             this.comboBoxZoom.SelectedValueChanged += new System.EventHandler(this.comboBoxZoom_SelectedValueChanged);
             // 
@@ -104,9 +104,9 @@
             // 
             this.comboBoxCalib.CausesValidation = false;
             this.comboBoxCalib.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxCalib.Location = new System.Drawing.Point(116, 29);
+            this.comboBoxCalib.Location = new System.Drawing.Point(94, 29);
             this.comboBoxCalib.Name = "comboBoxCalib";
-            this.comboBoxCalib.Size = new System.Drawing.Size(102, 21);
+            this.comboBoxCalib.Size = new System.Drawing.Size(144, 21);
             this.comboBoxCalib.TabIndex = 33;
             this.comboBoxCalib.SelectedIndexChanged += new System.EventHandler(this.comboBoxCalib_SelectedIndexChanged);
             // 
@@ -114,7 +114,7 @@
             // 
             this.label5.Location = new System.Drawing.Point(6, 13);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 13);
+            this.label5.Size = new System.Drawing.Size(82, 13);
             this.label5.TabIndex = 33;
             this.label5.Text = "Zoom";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -122,7 +122,7 @@
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.Location = new System.Drawing.Point(226, 13);
+            this.label4.Location = new System.Drawing.Point(247, 13);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 13);
             this.label4.TabIndex = 31;
@@ -133,7 +133,7 @@
             // 
             this.trackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBar1.AutoSize = false;
-            this.trackBar1.Location = new System.Drawing.Point(223, 29);
+            this.trackBar1.Location = new System.Drawing.Point(244, 29);
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(104, 25);
             this.trackBar1.TabIndex = 30;
@@ -148,9 +148,9 @@
             this.groupBox1.Controls.Add(this.textBoxDist);
             this.groupBox1.Controls.Add(this.textBoxStart);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(356, 3);
+            this.groupBox1.Location = new System.Drawing.Point(371, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(336, 58);
+            this.groupBox1.Size = new System.Drawing.Size(321, 58);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gitter";

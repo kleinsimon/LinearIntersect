@@ -194,6 +194,7 @@ namespace LinearIntersect
             Debug.WriteLine("Form closing");
             ImageForms.Remove(ifrm);
             ifrm.Dispose();
+            ifrm = null;
             if (ImageForms.Count > 0)
             {
                 ImageForms[0].Activate();

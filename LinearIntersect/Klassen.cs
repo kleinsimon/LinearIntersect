@@ -5,7 +5,7 @@ using System.Text;
 using System.Configuration;
 using System.Diagnostics;
 using System.Drawing;
-
+using System.Windows.Forms.Design;
 using System.Windows.Forms;
 using System.ComponentModel;
 
@@ -422,8 +422,39 @@ namespace LinearIntersect
     }
 
     [Serializable]
-    public class CalibrationList : BindingList<BindableKeyValuePair<string, float>>
+    public class CalibrationList : BindingList<CalibrationSet>
     {
 
+    }
+
+    [Serializable]
+    public class CalibrationSet : BindableKeyValuePair<string, float>
+    {
+
+    }
+
+    [ToolStripItemDesignerAvailability(ToolStripItemDesignerAvailability.MenuStrip |
+                                       ToolStripItemDesignerAvailability.ContextMenuStrip |
+                                       ToolStripItemDesignerAvailability.StatusStrip)]
+    public class ComboStripItem : ToolStripControlHost
+    {
+        private ComboBox combo;
+
+        public ComboStripItem()
+            : base(new ComboBox())
+        {
+            this.combo = this.Control as ComboBox;
+        }
+
+        public ControlBindingsCollection DataBindings
+        {
+            get { return combo.DataBindings; }
+        }
+
+        public object DataSource
+        {
+            get { return combo.DataSource; }
+            set { DataSource = value; }
+        }
     }
 }

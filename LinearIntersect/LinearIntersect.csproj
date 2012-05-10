@@ -60,7 +60,9 @@
     <Compile Include="ColorButton.Designer.cs">
       <DependentUpon>ColorButton.cs</DependentUpon>
     </Compile>
-    <Compile Include="Klassen.cs" />
+    <Compile Include="Klassen.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="mainForm.cs">
       <SubType>Form</SubType>
     </Compile>

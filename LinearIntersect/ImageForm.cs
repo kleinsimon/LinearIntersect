@@ -42,7 +42,25 @@ namespace LinearIntersect
                 }
             }
         }
-        public bool exportDone = false;
+
+        private bool _dirty = false;
+        public bool DirtyState
+        {
+            get
+            {
+                return _dirty;
+            }
+            set
+            {
+                _dirty = value;
+                Debug.WriteLine("Dirty State changed");
+                if (_dirty)
+                    StatusDirty.Text = "Nicht Exportiert";
+                else
+                    StatusDirty.Text = "Daten Exportiert";
+            }
+        }
+
         public int Contrast
         {
             get
@@ -89,27 +107,28 @@ namespace LinearIntersect
         {
             Size newSize = new Size((int)((float)BaseImage.Width * _zoom), (int)((float)BaseImage.Height * _zoom));
             this.ClientSize = newSize;
+            this.Height += status.Height;
             CurOverlay.ImageSize = BaseImage.Size;
 
             //tmpImage = (Image)BaseImage.Clone();
             tmpImage = new Bitmap(BaseImage, newSize);
 
             CurOverlay.createGrid();
-            
+
             this.Refresh();
         }
 
         public void setContrast()
         {
-            float[][] ptsArray ={
-                    new float[] {contrast, 0, 0, 0, 0}, // scale red
-                    new float[] {0, contrast, 0, 0, 0}, // scale green
-                    new float[] {0, 0, contrast, 0, 0}, // scale blue
-                    new float[] {0, 0, 0, 1.0f, 0}, // don't scale alpha
-                    new float[] {0, 0, 0, 0, 1f}};
+            //float[][] ptsArray ={
+            //        new float[] {contrast, 0, 0, 0, 0}, // scale red
+            //        new float[] {0, contrast, 0, 0, 0}, // scale green
+            //        new float[] {0, 0, contrast, 0, 0}, // scale blue
+            //        new float[] {0, 0, 0, 1.0f, 0}, // don't scale alpha
+            //        new float[] {0, 0, 0, 0, 1f}};
 
             ImageAttributes iA = new ImageAttributes();
-            iA.ClearColorMatrix();
+            //iA.ClearColorMatrix();
             //iA.SetColorMatrix(new ColorMatrix(ptsArray), ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
             if (contrast <= 0.1f) contrast = 0.11f;
             iA.SetGamma(contrast);
@@ -123,7 +142,15 @@ namespace LinearIntersect
 
         private void ImageForm_Paint(object sender, PaintEventArgs e)
         {
+            refreshStats();
             redraw(e.Graphics);
+        }
+
+        private void refreshStats()
+        {
+
+            statusZoom.Text = Zoom;
+            statusStats.Text = BaseImage.Width + "x" + BaseImage.Height + ", " + CurOverlay.Points.Count + @" Punkte";
         }
 
         private void redraw(Graphics go)
@@ -221,7 +248,7 @@ namespace LinearIntersect
                     (int)((float)(e.Y - this.ClientRectangle.Y) / _zoom)
                     ));
 
-            exportDone = false;
+            DirtyState = true;
             prnt.dataDirty(true);
             this.Refresh();
         }
@@ -279,7 +306,7 @@ namespace LinearIntersect
                         start = pos;
                         continue;
                     }
-                    output.Add(string.Format("{0}\t{1}\t{2}", i, pos - start, ((float) (pos - start)) * CurOverlay.Calibration.Value));
+                    output.Add(string.Format("{0}\t{1}\t{2}", i, pos - start, ((float)(pos - start)) * CurOverlay.Calibration.Value));
                     start = pos;
                     i++;
                 }
@@ -292,7 +319,7 @@ namespace LinearIntersect
                 ((CurOverlay.Orientation == GridOrientation.Horizontal) ? "_h" : "_v") +
                 ".txt"
                 , output);
-            exportDone = true;
+            DirtyState = false;
         }
 
         private void ImageForm_Activated(object sender, EventArgs e)
@@ -303,7 +330,7 @@ namespace LinearIntersect
 
         private void ImageForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (CurOverlay.Points.Count > 0 && !exportDone)
+            if (CurOverlay.Points.Count > 0 && DirtyState)
             {
                 if (MessageBox.Show(
                     "Daten nicht exportiert, wirklich schließen?",

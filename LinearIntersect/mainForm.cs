@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.IO;
 using System.Text;
@@ -194,7 +195,6 @@ namespace LinearIntersect
             Debug.WriteLine("Form closing");
             ImageForms.Remove(ifrm);
             ifrm.Dispose();
-            ifrm = null;
             if (ImageForms.Count > 0)
             {
                 ImageForms[0].Activate();
@@ -271,13 +271,55 @@ namespace LinearIntersect
                 return;
             try
             {
-                Debug.WriteLine(comboBoxCalib.SelectedText  + activeImage.CurOverlay.Calibration.Value.ToString());
+                Debug.WriteLine(comboBoxCalib.SelectedText + activeImage.CurOverlay.Calibration.Value.ToString());
                 activeImage.CurOverlay.Calibration = (BindableKeyValuePair<string, float>)comboBoxCalib.SelectedItem;
             }
             catch
             {
 
             }
+        }
+
+        private void öffnenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Multiselect = true;
+            openFileDialog1.Filter = getSupportedCodecs();
+            openFileDialog1.FilterIndex = 0;
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Debug.WriteLine("Adding " + openFileDialog1.FileNames.Length + " Files");
+                foreach (string p in openFileDialog1.FileNames)
+                {
+                    Debug.WriteLine("Adding File " + p);
+                    AddImage(p);
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private string getSupportedCodecs()
+        {
+            string res = "";
+            string tmp = "";
+            string allext = "";
+
+            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
+
+            foreach (var c in codecs)
+            {
+                string codecName = c.CodecName.Substring(8).Replace("Codec", "Files").Trim();
+                tmp = String.Format("{0}{1}{2} ({3})|{3}", tmp, "|", codecName, c.FilenameExtension);
+                allext += c.FilenameExtension + ";";
+            }
+
+            res = String.Format("{0}{1}{2} ({3})|{3}", res, "", "Alle Bilder", allext);
+            res += tmp;
+            res = String.Format("{0}{1}{2} ({3})|{3}", res, "|", "Alle Dateien", "*.*");
+
+            return res;
         }
     }
 }

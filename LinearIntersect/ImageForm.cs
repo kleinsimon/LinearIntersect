@@ -316,9 +316,6 @@ namespace LinearIntersect
                 }
 
             }
-            BaseImage.Dispose();
-            tmpImage.Dispose();
-            CurOverlay = null;
             prnt.removeImage(this);
         }
     }

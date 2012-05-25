@@ -70,6 +70,7 @@ namespace LinearIntersect
         {
             KalibTool = new ResizableControl();
             KalibTool.Parent = MainForm.activeImage;
+            MainForm.activeImage.StatusDirty.Text = "Balken zum Messen positionieren, doppelklick für vertikal";
             KalibTool.Left = 100;
             KalibTool.Top = 100;
         }

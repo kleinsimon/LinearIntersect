@@ -56,11 +56,13 @@ namespace LinearIntersect
 
             if (Direction == Orientation.Horizontal)
             {
-                g.FillRectangle(Brushes.White, 0, 0, this.Width, this.Height / 2);
+                g.FillRectangle(Brushes.White, 0, 0, this.Width, this.Height / 4);
+                g.FillRectangle(Brushes.White, 0, this.Height / 2, this.Width, this.Height / 4);
             }
             else
             {
-                g.FillRectangle(Brushes.White, 0, 0, this.Width / 2, this.Height);
+                g.FillRectangle(Brushes.White, 0, 0, this.Width / 4, this.Height);
+                g.FillRectangle(Brushes.White, this.Width / 2, 0, this.Width / 4, this.Height);
             }
 
             base.OnPaint(e);

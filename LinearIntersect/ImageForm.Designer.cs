@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.status = new System.Windows.Forms.StatusStrip();
+            this.statusZoom = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStats = new System.Windows.Forms.ToolStripStatusLabel();
             this.StatusDirty = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusZoom = new System.Windows.Forms.ToolStripStatusLabel();
             this.status.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,12 +41,18 @@
             this.statusZoom,
             this.statusStats,
             this.StatusDirty});
-            this.status.Location = new System.Drawing.Point(0, 344);
+            this.status.Location = new System.Drawing.Point(0, 345);
             this.status.Name = "status";
-            this.status.Size = new System.Drawing.Size(377, 23);
+            this.status.Size = new System.Drawing.Size(377, 22);
             this.status.SizingGrip = false;
             this.status.TabIndex = 0;
             this.status.Text = "statusStrip1";
+            // 
+            // statusZoom
+            // 
+            this.statusZoom.Name = "statusZoom";
+            this.statusZoom.Size = new System.Drawing.Size(135, 18);
+            this.statusZoom.Text = "toolStripDropDownButton1";
             // 
             // statusStats
             // 
@@ -56,15 +62,8 @@
             // 
             // StatusDirty
             // 
-            this.StatusDirty.AutoSize = false;
             this.StatusDirty.Name = "StatusDirty";
-            this.StatusDirty.Size = new System.Drawing.Size(120, 18);
-            // 
-            // statusZoom
-            // 
-            this.statusZoom.Name = "statusZoom";
-            this.statusZoom.Size = new System.Drawing.Size(135, 18);
-            this.statusZoom.Text = "toolStripDropDownButton1";
+            this.StatusDirty.Size = new System.Drawing.Size(0, 17);
             // 
             // ImageForm
             // 
@@ -91,9 +90,9 @@
 
         #endregion
 
-        private System.Windows.Forms.StatusStrip status;
-        private System.Windows.Forms.ToolStripStatusLabel StatusDirty;
         private System.Windows.Forms.ToolStripStatusLabel statusStats;
         private System.Windows.Forms.ToolStripStatusLabel statusZoom;
+        public System.Windows.Forms.StatusStrip status;
+        public System.Windows.Forms.ToolStripStatusLabel StatusDirty;
     }
 }

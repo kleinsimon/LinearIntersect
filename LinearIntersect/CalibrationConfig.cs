@@ -40,6 +40,7 @@ namespace LinearIntersect
 
             DataGridViewTextBoxColumn name = new DataGridViewTextBoxColumn();
             DataGridViewTextBoxColumn value = new DataGridViewTextBoxColumn();
+            DataGridViewComboBoxColumn opt = new DataGridViewComboBoxColumn();
 
             name.DataPropertyName = "Key";
             name.Name = "Name";
@@ -51,19 +52,30 @@ namespace LinearIntersect
             value.ValueType = typeof(float);
             value.SortMode = DataGridViewColumnSortMode.Automatic;
 
+            opt.DataPropertyName = "Opt";
+            opt.Name = "Einheit";
+            opt.ValueType = typeof(Units);
+            opt.DataSource = Enum.GetValues(typeof(Units));
+            opt.SortMode = DataGridViewColumnSortMode.Automatic;
+
             dGVCalib.Columns.Add(name);
             dGVCalib.Columns.Add(value);
+            dGVCalib.Columns.Add(opt);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            dGVCalib.EndEdit();
             dGVCalib.CommitEdit(DataGridViewDataErrorContexts.Commit);
+
+            dGVCalib.BindingContext[dGVCalib.DataSource].EndCurrentEdit();
         }
 
         private void dGVCalib_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
             e.Row.Cells[0].Value = "Neu";
             e.Row.Cells[1].Value = 1f;
+            e.Row.Cells[2].Value = Units.µm;
         }
 
         private void CreateCalibBar()
@@ -110,6 +122,17 @@ namespace LinearIntersect
                 char.IsWhiteSpace(e.KeyChar) ||
                 char.IsPunctuation(e.KeyChar))
                 e.Handled = true;
+        }
+
+        private void CalibrationConfig_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            dGVCalib.EndEdit();
+            dGVCalib.CommitEdit(DataGridViewDataErrorContexts.Commit);
+        }
+
+        private void dGVCalib_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            dGVCalib.CommitEdit(DataGridViewDataErrorContexts.Commit);
         }
     }
 }

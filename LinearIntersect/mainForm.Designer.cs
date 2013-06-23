@@ -47,12 +47,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.öffnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.auswertungSpeichernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.punkteLlöschenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kalibierungenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.öffnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -239,13 +239,20 @@
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(45, 22);
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(47, 22);
             this.toolStripDropDownButton1.Text = "Datei";
+            // 
+            // öffnenToolStripMenuItem
+            // 
+            this.öffnenToolStripMenuItem.Name = "öffnenToolStripMenuItem";
+            this.öffnenToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.öffnenToolStripMenuItem.Text = "Öffnen...";
+            this.öffnenToolStripMenuItem.Click += new System.EventHandler(this.öffnenToolStripMenuItem_Click);
             // 
             // auswertungSpeichernToolStripMenuItem
             // 
             this.auswertungSpeichernToolStripMenuItem.Name = "auswertungSpeichernToolStripMenuItem";
-            this.auswertungSpeichernToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.auswertungSpeichernToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.auswertungSpeichernToolStripMenuItem.Text = "Exportieren";
             this.auswertungSpeichernToolStripMenuItem.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -258,20 +265,20 @@
             this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(56, 22);
+            this.toolStripDropDownButton2.Size = new System.Drawing.Size(60, 22);
             this.toolStripDropDownButton2.Text = "Messen";
             // 
             // punkteLlöschenToolStripMenuItem
             // 
             this.punkteLlöschenToolStripMenuItem.Name = "punkteLlöschenToolStripMenuItem";
-            this.punkteLlöschenToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.punkteLlöschenToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.punkteLlöschenToolStripMenuItem.Text = "Punkte Löschen";
             this.punkteLlöschenToolStripMenuItem.Click += new System.EventHandler(this.button3_Click);
             // 
             // kalibierungenToolStripMenuItem
             // 
             this.kalibierungenToolStripMenuItem.Name = "kalibierungenToolStripMenuItem";
-            this.kalibierungenToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.kalibierungenToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.kalibierungenToolStripMenuItem.Text = "Kalibierungen...";
             this.kalibierungenToolStripMenuItem.Click += new System.EventHandler(this.buttonSetCalib_Click);
             // 
@@ -281,16 +288,9 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(74, 22);
+            this.toolStripButton1.Size = new System.Drawing.Size(82, 22);
             this.toolStripButton1.Text = "Einstellungen";
             this.toolStripButton1.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // öffnenToolStripMenuItem
-            // 
-            this.öffnenToolStripMenuItem.Name = "öffnenToolStripMenuItem";
-            this.öffnenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.öffnenToolStripMenuItem.Text = "Öffnen...";
-            this.öffnenToolStripMenuItem.Click += new System.EventHandler(this.öffnenToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 

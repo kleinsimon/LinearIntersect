@@ -17,6 +17,15 @@ namespace LinearIntersect
         Horizontal
     }
 
+    public enum Units
+    {
+        nm,
+        µm,
+        mm,
+        cm,
+        m
+    }
+
     public class Overlay : INotifyPropertyChanged
     {
         public List<Point> Points = new List<Point>();
@@ -24,15 +33,15 @@ namespace LinearIntersect
         private int GridStart = 30;
         private int GridDistance = 100;
         public float zoom = 1f;
-        private BindableKeyValuePair<string, float> _calibration;
+        private CalibrationSet _calibration;
 
-        public BindableKeyValuePair<string, float> Calibration
+        public CalibrationSet Calibration
         {
             get
             {
                 if (_calibration == null)
                 {
-                    BindableKeyValuePair<string, float> tmp = new BindableKeyValuePair<string, float>();
+                    CalibrationSet tmp = new CalibrationSet();
                     tmp.Key = "Default";
                     tmp.Value = 1f;
                     _calibration = tmp;
@@ -380,7 +389,7 @@ namespace LinearIntersect
     }
 
     [Serializable]
-    public class BindableKeyValuePair<T1, T2>
+    public class BindableKeyValueData<T1, T2, T3>
     {
         private T1 _key = default(T1);
         public T1 Key
@@ -393,6 +402,7 @@ namespace LinearIntersect
             {
                 _key = value;
                 NotifyPropertyChanged("Key Changed");
+                Debug.WriteLine("Key Changes");
             }
         }
 
@@ -407,6 +417,22 @@ namespace LinearIntersect
             {
                 _value = value;
                 NotifyPropertyChanged("Value Changed");
+                Debug.WriteLine("Value Changes");
+            }
+        }
+
+        private T3 _opt = default(T3);
+        public T3 Opt
+        {
+            get
+            {
+                return _opt;
+            }
+            set
+            {
+                _opt = value;
+                NotifyPropertyChanged("Opt Changed");
+                Debug.WriteLine("Opt Changes");
             }
         }
 
@@ -428,8 +454,9 @@ namespace LinearIntersect
     }
 
     [Serializable]
-    public class CalibrationSet : BindableKeyValuePair<string, float>
+    public class CalibrationSet : BindableKeyValueData<string, float, Units>
     {
+        
 
     }
 

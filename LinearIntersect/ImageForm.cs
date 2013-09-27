@@ -106,7 +106,8 @@ namespace LinearIntersect
         public void setScale()
         {
             Size newSize = new Size((int)((float)BaseImage.Width * _zoom), (int)((float)BaseImage.Height * _zoom));
-            this.ClientSize = newSize;
+            //this.ClientSize = newSize;
+            ImgPanel.ClientSize = newSize;
             this.Height += status.Height;
             CurOverlay.ImageSize = BaseImage.Size;
 
@@ -142,6 +143,7 @@ namespace LinearIntersect
 
         private void ImageForm_Paint(object sender, PaintEventArgs e)
         {
+            this.
             refreshStats();
             redraw(e.Graphics);
         }

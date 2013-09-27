@@ -54,7 +54,7 @@ namespace LinearIntersect
             comboBoxZoom.DataSource = zoomLevels;
 
             comboBoxCalib.DataSource = Data.Calibration;
-            comboBoxCalib.DataBindings.Add(new Binding("SelectedItem", Data, "Calibration"));
+            //comboBoxCalib.DataBindings.Add(new Binding("SelectedItem", Data, "Calibration"));
             comboBoxCalib.DisplayMember = "Key";
             comboBoxCalib.ValueMember = "Value";
 

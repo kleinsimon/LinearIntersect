@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImageForm));
             this.status = new System.Windows.Forms.StatusStrip();
             this.statusZoom = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStats = new System.Windows.Forms.ToolStripStatusLabel();
@@ -95,12 +96,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.AutoScrollMargin = new System.Drawing.Size(5, 5);
             this.AutoScrollMinSize = new System.Drawing.Size(200, 200);
             this.ClientSize = new System.Drawing.Size(977, 537);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.status);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ImageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ImageForm";

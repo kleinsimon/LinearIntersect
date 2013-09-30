@@ -35,6 +35,7 @@
             this.StatusDirty = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ImgPanel = new System.Windows.Forms.PictureBox();
+            this.calibStat = new System.Windows.Forms.ToolStripStatusLabel();
             this.status.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImgPanel)).BeginInit();
@@ -45,7 +46,8 @@
             this.status.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusZoom,
             this.statusStats,
-            this.StatusDirty});
+            this.StatusDirty,
+            this.calibStat});
             this.status.Location = new System.Drawing.Point(0, 515);
             this.status.Name = "status";
             this.status.Size = new System.Drawing.Size(977, 22);
@@ -92,6 +94,12 @@
             this.ImgPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ImageForm_MouseDown);
             this.ImgPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ImageForm_MouseMove);
             // 
+            // calibStat
+            // 
+            this.calibStat.Name = "calibStat";
+            this.calibStat.Size = new System.Drawing.Size(118, 17);
+            this.calibStat.Text = "toolStripStatusLabel1";
+            // 
             // ImageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -126,5 +134,6 @@
         public System.Windows.Forms.ToolStripStatusLabel StatusDirty;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox ImgPanel;
+        private System.Windows.Forms.ToolStripStatusLabel calibStat;
     }
 }

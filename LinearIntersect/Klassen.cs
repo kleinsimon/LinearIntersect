@@ -33,20 +33,12 @@ namespace LinearIntersect
         private int GridStart = 30;
         private int GridDistance = 100;
         public float zoom = 1f;
-        private CalibrationSet _calibration;
+        private float _calibration = 1f;
 
-        public CalibrationSet Calibration
+        public float Calibration
         {
             get
             {
-                if (_calibration == null)
-                {
-                    CalibrationSet tmp = new CalibrationSet();
-                    tmp.Key = "Default";
-                    tmp.Value = 1f;
-                    _calibration = tmp;
-                }
-
                 return _calibration;
             }
             set

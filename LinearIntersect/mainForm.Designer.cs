@@ -111,6 +111,7 @@
             this.comboBoxCalib.Size = new System.Drawing.Size(144, 21);
             this.comboBoxCalib.TabIndex = 33;
             this.comboBoxCalib.SelectedIndexChanged += new System.EventHandler(this.comboBoxCalib_SelectedIndexChanged);
+            this.comboBoxCalib.SelectedValueChanged += new System.EventHandler(this.comboBoxZoom_SelectedValueChanged);
             // 
             // label5
             // 

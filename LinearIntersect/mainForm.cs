@@ -149,9 +149,8 @@ namespace LinearIntersect
         {
             if (activeImage == null) return;
             Debug.WriteLine("Export geclickt");
-            Debug.WriteLine(activeImage.CurOverlay.Calibration.Key);
             DialogResult DR;
-            if (activeImage.CurOverlay.Calibration.Key == "Default")
+            if (activeImage.CurOverlay.Calibration == 1f)
             {
                 DR = MessageBox.Show("Kein Kalibrationsfaktor eingestellt. Fortfahren?", "Ohne Kalibrierung exportieren?", MessageBoxButtons.YesNoCancel);
 
@@ -277,17 +276,17 @@ namespace LinearIntersect
 
         private void comboBoxCalib_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (comboBoxCalib.SelectedItem == null)
-            //    return;
-            //try
-            //{
-            //    Debug.WriteLine(comboBoxCalib.SelectedText + activeImage.CurOverlay.Calibration.Value.ToString());
-            //    activeImage.CurOverlay.Calibration = (CalibrationSet)comboBoxCalib.SelectedItem;
-            //}
-            //catch
-            //{
+            if (comboBoxCalib.SelectedItem == null)
+                Debug.WriteLine("ist null");
+            try
+            {
+                Debug.WriteLine(comboBoxCalib.SelectedText + activeImage.CurOverlay.Calibration.ToString());
+                activeImage.CurOverlay.Calibration = ((CalibrationSet)comboBoxCalib.SelectedItem).Value;
+            }
+            catch
+            {
 
-            //}
+            }
         }
 
         private void öffnenToolStripMenuItem_Click(object sender, EventArgs e)

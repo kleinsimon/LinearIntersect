@@ -82,6 +82,18 @@ namespace LinearIntersect
             InitializeComponent();
             this.DoubleBuffered = true;
             CurOverlay.PropertyChanged += new PropertyChangedEventHandler(CurOverlay_PropertyChanged);
+            CurOverlay.PropertyChanged += Calibration_PropertyChanged;
+            setCalibText();
+        }
+
+        void Calibration_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            setCalibText();
+        }
+
+        private void setCalibText()
+        {
+            calibStat.Text = "Faktor: " + CurOverlay.Calibration.ToString();
         }
 
         void CurOverlay_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -108,7 +120,7 @@ namespace LinearIntersect
             Size newSize = new Size((int)((float)BaseImage.Width * _zoom), (int)((float)BaseImage.Height * _zoom));
             //this.ClientSize = newSize;
             ImgPanel.ClientSize = newSize;
-            this.Height += status.Height;
+            //this.Height += status.Height;
             CurOverlay.ImageSize = BaseImage.Size;
 
             //tmpImage = (Image)BaseImage.Clone();
@@ -294,7 +306,7 @@ namespace LinearIntersect
             output.Add("\"Orientation:\" \"" + CurOverlay.Orientation.ToString() + "\"");
             output.Add("\"Distance:\" \"" + CurOverlay.DSTString + "\"");
             output.Add("\"Start:\" \"" + CurOverlay.StartString + "\"");
-            output.Add("\"Umrechnung:\" \"" + CurOverlay.Calibration.Value.ToString() + "\"" + Environment.NewLine);
+            output.Add("\"Umrechnung:\" \"" + CurOverlay.Calibration.ToString() + "\"" + Environment.NewLine);
             output.Add("Nummer\tSehnenlänge [px]\tSehenlänge");
 
             foreach (KeyValuePair<int, List<int>> info in LineInfo)
@@ -308,7 +320,7 @@ namespace LinearIntersect
                         start = pos;
                         continue;
                     }
-                    output.Add(string.Format("{0}\t{1}\t{2}", i, pos - start, ((float)(pos - start)) * CurOverlay.Calibration.Value));
+                    output.Add(string.Format("{0}\t{1}\t{2}", i, pos - start, ((float)(pos - start)) * CurOverlay.Calibration));
                     start = pos;
                     i++;
                 }

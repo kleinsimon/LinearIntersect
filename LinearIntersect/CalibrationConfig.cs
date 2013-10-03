@@ -81,10 +81,16 @@ namespace LinearIntersect
         private void CreateCalibBar()
         {
             KalibTool = new ResizableControl();
-            KalibTool.Parent = MainForm.activeImage;
+            KalibTool.Parent = MainForm.activeImage.ImgPanel;
             MainForm.activeImage.StatusDirty.Text = "Balken zum Messen positionieren, doppelklick für vertikal";
-            KalibTool.Left = 100;
-            KalibTool.Top = 100;
+            Point pos = KalibTool.Parent.Location;
+            pos.X *= -1;
+            pos.Y *= -1;
+            pos.X += 100;
+            pos.Y += 100;
+            KalibTool.Location = pos;
+            //KalibTool.Left = ;
+            //KalibTool.Top = 100;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -101,7 +107,7 @@ namespace LinearIntersect
             }
             else if (measuring && float.TryParse(textBoxSoll.Text, out tmp))
             {
-                dGVCalib.Rows[dGVCalib.SelectedCells[0].RowIndex].Cells[1].Value = tmp / (float) KalibTool.Length;
+                dGVCalib.Rows[dGVCalib.SelectedCells[0].RowIndex].Cells[1].Value = (tmp / (float) KalibTool.Length) * MainForm.activeImage.CurOverlay.zoom;
 
                 KalibTool.Dispose();
                 measuring = false;

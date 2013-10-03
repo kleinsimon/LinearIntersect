@@ -33,9 +33,9 @@
             this.statusZoom = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStats = new System.Windows.Forms.ToolStripStatusLabel();
             this.StatusDirty = new System.Windows.Forms.ToolStripStatusLabel();
+            this.calibStat = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ImgPanel = new System.Windows.Forms.PictureBox();
-            this.calibStat = new System.Windows.Forms.ToolStripStatusLabel();
             this.status.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImgPanel)).BeginInit();
@@ -72,6 +72,12 @@
             this.StatusDirty.Name = "StatusDirty";
             this.StatusDirty.Size = new System.Drawing.Size(0, 17);
             // 
+            // calibStat
+            // 
+            this.calibStat.Name = "calibStat";
+            this.calibStat.Size = new System.Drawing.Size(118, 17);
+            this.calibStat.Text = "toolStripStatusLabel1";
+            // 
             // panel1
             // 
             this.panel1.AutoScroll = true;
@@ -93,12 +99,6 @@
             this.ImgPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.ImageForm_Paint);
             this.ImgPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ImageForm_MouseDown);
             this.ImgPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ImageForm_MouseMove);
-            // 
-            // calibStat
-            // 
-            this.calibStat.Name = "calibStat";
-            this.calibStat.Size = new System.Drawing.Size(118, 17);
-            this.calibStat.Text = "toolStripStatusLabel1";
             // 
             // ImageForm
             // 
@@ -133,7 +133,7 @@
         public System.Windows.Forms.StatusStrip status;
         public System.Windows.Forms.ToolStripStatusLabel StatusDirty;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox ImgPanel;
         private System.Windows.Forms.ToolStripStatusLabel calibStat;
+        public System.Windows.Forms.PictureBox ImgPanel;
     }
 }

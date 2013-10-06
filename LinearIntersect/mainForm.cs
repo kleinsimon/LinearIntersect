@@ -281,7 +281,10 @@ namespace LinearIntersect
             try
             {
                 Debug.WriteLine(comboBoxCalib.SelectedText + activeImage.CurOverlay.Calibration.ToString());
-                activeImage.CurOverlay.Calibration = ((CalibrationSet)comboBoxCalib.SelectedItem).Value;
+                if (!activeImage.isFixedCalib)
+                    activeImage.CurOverlay.Calibration = ((CalibrationSet)comboBoxCalib.SelectedItem).Value;
+                else
+                    MessageBox.Show("Das aktuelle Bild besitzt eine fest vorgegebene Kalibration");
             }
             catch
             {

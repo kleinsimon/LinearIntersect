@@ -8,15 +8,18 @@ using System.Diagnostics;
 using System.Linq;
 using System.IO;
 using System.Text;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace LinearIntersect
 {
     public partial class ImageForm : Form
     {
+        string[] TiffExt = { ".tiff", ".tif" };
         Image BaseImage;
         Image tmpImage;
         string imgPath;
+        public bool isFixedCalib = false;
         public Overlay CurOverlay = new Overlay();
         public float lineSize = 1f;
         private float contrast = 1f;
@@ -93,7 +96,7 @@ namespace LinearIntersect
 
         private void setCalibText()
         {
-            calibStat.Text = "Faktor: " + CurOverlay.Calibration.ToString();
+            calibStat.Text = "Faktor: " + CurOverlay.Calibration.ToString() + " µm/px";
         }
 
         void CurOverlay_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -109,10 +112,69 @@ namespace LinearIntersect
 
             this.Text = Path.GetFileName(ImageFile);
 
+            if (TiffExt.Contains(Path.GetExtension(ImageFile)))
+            {
+                parseCalibMicron(ImageFile);
+            }
+
             imgPath = ImageFile;
 
             setScale();
             init = true;
+        }
+
+        private void parseCalibMicron(string file)
+        {
+            string path, filename;
+            if (File.Exists(file))
+            {
+                path = file;
+                filename = Path.GetFileName(file);
+
+                StreamReader FS = new StreamReader(file);
+                string line = "";
+                string cstring = "";
+
+                while ((line = FS.ReadLine()) != null)
+                {
+                    if (line.Contains("AP_IMAGE_PIXEL_SIZE"))
+                    {
+                        cstring = FS.ReadLine().Split('=')[1];
+                        break;
+                    }
+                }
+
+                if (cstring != "")
+                {
+                    double val = 0d;
+                    string[] tmp;
+
+                    NumberFormatInfo NF = new NumberFormatInfo();
+                    NF.NumberDecimalSeparator = ".";
+                    NF.NumberGroupSeparator = "";
+
+                    tmp = cstring.Trim().Split(' ');
+                    if (double.TryParse(tmp[0], NumberStyles.Any, NF, out val))
+                    {
+                        tmp[1] = tmp[1].Trim();
+
+                        switch (tmp[1])
+                        {
+                            case "nm": val = val / 1000d;
+                                break;
+                            case "mm": val = val * 1000d;
+                                break;
+                            case "pm": val = val / 1000000d;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    this.CurOverlay.Calibration = (float) val;
+                    isFixedCalib = true;
+                }
+            }
+
         }
 
         public void setScale()
